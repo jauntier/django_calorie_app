@@ -1,0 +1,26 @@
+{% extends 'calorieapp/base.html' %}
+{% block content %}
+<div class="max-w-md mx-auto">
+    <h1 class="text-3xl font-bold mb-4 text-center">Add Food Item</h1>
+    <form method="post" action="{% url 'add_food_item' %}" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        {% csrf_token %}
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="id_name">
+                Name
+            </label>
+            {{ form.name }}
+        </div>
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="id_calories">
+                Calories
+            </label>
+            {{ form.calories }}
+        </div>
+        <div class="flex items-center justify-end">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Add
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
